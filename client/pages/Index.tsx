@@ -6,7 +6,7 @@ import {
   BookOpen,
   Brain,
   Code,
-  Design,
+  Palette,
   Globe,
   Languages,
   Music,
@@ -24,7 +24,7 @@ const skillCategories = [
     bgColor: "bg-blue-50",
   },
   {
-    icon: Design,
+    icon: Palette,
     title: "Design",
     description: "UI/UX, graphic design, and creative skills",
     color: "text-purple-600",
