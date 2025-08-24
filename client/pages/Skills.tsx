@@ -10,7 +10,7 @@ import {
   Clock,
   Filter,
   Code,
-  Design,
+  Palette,
   Languages,
   Music,
   Brain,
@@ -21,7 +21,7 @@ import { useState } from "react";
 const skillCategories = [
   { name: "All", icon: null },
   { name: "Programming", icon: Code },
-  { name: "Design", icon: Design },
+  { name: "Design", icon: Palette },
   { name: "Languages", icon: Languages },
   { name: "Music", icon: Music },
   { name: "Business", icon: Brain },
