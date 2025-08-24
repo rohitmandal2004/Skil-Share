@@ -176,8 +176,201 @@ export default function Index() {
         </div>
       </section>
 
-      {/* How it Works */}
+      {/* Platform Features Overview */}
       <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Complete Career Development Platform
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              From learning new skills to landing your dream job - everything you need to advance your career in one platform
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Link to="/skills" className="group">
+              <Card className="p-6 hover:shadow-xl transition-all duration-300 group-hover:scale-105 cursor-pointer border-2 hover:border-primary/20">
+                <CardContent className="p-0 text-center">
+                  <div className="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
+                    <BookOpen className="h-8 w-8 text-blue-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Learn Skills</h3>
+                  <p className="text-gray-600 text-sm">
+                    Connect with expert tutors and master new skills through personalized one-on-one sessions
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
+
+            <Link to="/jobs" className="group">
+              <Card className="p-6 hover:shadow-xl transition-all duration-300 group-hover:scale-105 cursor-pointer border-2 hover:border-primary/20">
+                <CardContent className="p-0 text-center">
+                  <div className="bg-green-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-100 transition-colors">
+                    <Briefcase className="h-8 w-8 text-green-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Find Jobs</h3>
+                  <p className="text-gray-600 text-sm">
+                    Discover opportunities from top companies worldwide with advanced filtering and search
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
+
+            <Link to="/placement-prep" className="group">
+              <Card className="p-6 hover:shadow-xl transition-all duration-300 group-hover:scale-105 cursor-pointer border-2 hover:border-primary/20">
+                <CardContent className="p-0 text-center">
+                  <div className="bg-purple-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-100 transition-colors">
+                    <GraduationCap className="h-8 w-8 text-purple-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Placement Prep</h3>
+                  <p className="text-gray-600 text-sm">
+                    Comprehensive interview preparation with mock interviews, coding practice, and company guides
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
+
+            <Link to="/dashboard" className="group">
+              <Card className="p-6 hover:shadow-xl transition-all duration-300 group-hover:scale-105 cursor-pointer border-2 hover:border-primary/20">
+                <CardContent className="p-0 text-center">
+                  <div className="bg-orange-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-100 transition-colors">
+                    <BarChart3 className="h-8 w-8 text-orange-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Track Progress</h3>
+                  <p className="text-gray-600 text-sm">
+                    Monitor your learning journey with detailed analytics and personalized recommendations
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Trusted by Companies */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              Trusted by Professionals from Top Companies
+            </h2>
+            <p className="text-gray-600">
+              Join learners and tutors from leading organizations worldwide
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center opacity-60">
+            {/* Company Logos */}
+            <div className="flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xl">G</span>
+              </div>
+            </div>
+            <div className="flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xl">M</span>
+              </div>
+            </div>
+            <div className="flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-500 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xl">A</span>
+              </div>
+            </div>
+            <div className="flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xl">A</span>
+              </div>
+            </div>
+            <div className="flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xl">F</span>
+              </div>
+            </div>
+            <div className="flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xl">N</span>
+              </div>
+            </div>
+            <div className="flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xl">S</span>
+              </div>
+            </div>
+            <div className="flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xl">A</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 text-center text-sm text-gray-500">
+            <div>Google</div>
+            <div>Microsoft</div>
+            <div>Amazon</div>
+            <div>Apple</div>
+            <div>Meta</div>
+            <div>Netflix</div>
+            <div>Salesforce</div>
+            <div>Adobe</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Platform Benefits */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Everything You Need to Succeed
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Our comprehensive platform provides all the tools and resources for your career growth
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="p-8 text-center border-0 shadow-lg">
+              <CardContent className="p-0">
+                <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Target className="h-10 w-10 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4">Personalized Learning</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  AI-powered recommendations match you with the perfect tutors and learning paths based on your goals and learning style.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="p-8 text-center border-0 shadow-lg">
+              <CardContent className="p-0">
+                <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Calendar className="h-10 w-10 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4">Flexible Scheduling</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Book sessions that fit your schedule with tutors available 24/7 across different time zones.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="p-8 text-center border-0 shadow-lg">
+              <CardContent className="p-0">
+                <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Award className="h-10 w-10 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4">Proven Results</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  95% of our users report significant improvement in their skills and 78% land their dream jobs within 6 months.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* How it Works */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
