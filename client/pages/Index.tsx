@@ -12,6 +12,13 @@ import {
   Music,
   Star,
   Users,
+  Briefcase,
+  GraduationCap,
+  MessageSquare,
+  BarChart3,
+  Target,
+  Calendar,
+  Award,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
