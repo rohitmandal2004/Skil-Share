@@ -452,22 +452,25 @@ export default function Index() {
       <section className="py-20 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to Start Learning?
+            Ready to Transform Your Career?
           </h2>
           <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of students already learning with SkillShare. 
-            Your next skill is just a session away.
+            Join thousands of professionals who've advanced their careers with SkillShare.
+            Your dream job is just a step away.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/skills">
+            <Link to="/placement-prep">
               <Button size="lg" variant="secondary" className="text-lg px-8 py-3">
-                Browse Skills
-                <ArrowRight className="ml-2 h-5 w-5" />
+                Start Preparation
+                <GraduationCap className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-3 border-white text-white hover:bg-white hover:text-primary">
-              Start Teaching
-            </Button>
+            <Link to="/jobs">
+              <Button size="lg" variant="outline" className="text-lg px-8 py-3 border-white text-white hover:bg-white hover:text-primary">
+                Explore Jobs
+                <Briefcase className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
