@@ -99,12 +99,12 @@ export default function Index() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24">
           <div className="text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Learn Any Skill,
-              <span className="block text-primary">One Session at a Time</span>
+              Your Complete Career
+              <span className="block text-primary">Development Platform</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Connect with expert tutors worldwide for personalized learning sessions. 
-              From coding to cooking, master new skills with our community of passionate teachers.
+              Learn skills with expert tutors, find your dream job, prepare for interviews, and track your progress.
+              Everything you need to advance your career in one comprehensive platform.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/skills">
