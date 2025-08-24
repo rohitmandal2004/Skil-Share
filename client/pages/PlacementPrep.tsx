@@ -85,6 +85,75 @@ const topCompanies = [
   { name: "Adobe", logo: "A", interviews: 380, difficulty: "Medium" },
 ];
 
+const subjectNotes = [
+  {
+    id: 1,
+    subject: "Data Structures & Algorithms",
+    icon: Code,
+    color: "text-blue-600",
+    bgColor: "bg-blue-50",
+    topics: ["Arrays", "LinkedList", "Trees", "Graphs", "DP", "Sorting"],
+    uploadedNotes: [
+      { name: "DSA_Fundamentals.pdf", size: "2.3 MB", uploadDate: "2 days ago" },
+      { name: "Graph_Algorithms.pdf", size: "1.8 MB", uploadDate: "5 days ago" },
+    ],
+  },
+  {
+    id: 2,
+    subject: "Database Management Systems",
+    icon: Database,
+    color: "text-green-600",
+    bgColor: "bg-green-50",
+    topics: ["SQL", "Normalization", "Indexing", "Transactions", "NoSQL"],
+    uploadedNotes: [
+      { name: "DBMS_Complete_Notes.pdf", size: "3.1 MB", uploadDate: "1 week ago" },
+    ],
+  },
+  {
+    id: 3,
+    subject: "Object Oriented Programming",
+    icon: Layers,
+    color: "text-purple-600",
+    bgColor: "bg-purple-50",
+    topics: ["Classes", "Inheritance", "Polymorphism", "Encapsulation", "Abstraction"],
+    uploadedNotes: [
+      { name: "OOPs_Concepts.pdf", size: "1.5 MB", uploadDate: "3 days ago" },
+      { name: "Java_OOP_Examples.pdf", size: "2.7 MB", uploadDate: "1 week ago" },
+    ],
+  },
+  {
+    id: 4,
+    subject: "Operating Systems",
+    icon: Cpu,
+    color: "text-orange-600",
+    bgColor: "bg-orange-50",
+    topics: ["Processes", "Memory", "File Systems", "Scheduling", "Deadlocks"],
+    uploadedNotes: [
+      { name: "OS_Process_Management.pdf", size: "2.9 MB", uploadDate: "4 days ago" },
+    ],
+  },
+  {
+    id: 5,
+    subject: "Computer Networks",
+    icon: Network,
+    color: "text-indigo-600",
+    bgColor: "bg-indigo-50",
+    topics: ["OSI Model", "TCP/IP", "Routing", "Security", "Protocols"],
+    uploadedNotes: [],
+  },
+  {
+    id: 6,
+    subject: "System Design",
+    icon: BarChart3,
+    color: "text-red-600",
+    bgColor: "bg-red-50",
+    topics: ["Scalability", "Load Balancing", "Databases", "Caching", "Microservices"],
+    uploadedNotes: [
+      { name: "System_Design_Basics.pdf", size: "4.2 MB", uploadDate: "2 weeks ago" },
+    ],
+  },
+];
+
 const upcomingMockInterviews = [
   {
     type: "Technical Interview",
