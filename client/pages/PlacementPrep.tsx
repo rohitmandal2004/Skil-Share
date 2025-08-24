@@ -506,10 +506,23 @@ export default function PlacementPrep() {
                           </p>
                         </div>
                       </div>
-                      <Button size="sm" variant="outline">
-                        <Upload className="h-4 w-4 mr-2" />
-                        Upload PDF
-                      </Button>
+                      <div className="relative">
+                        <input
+                          type="file"
+                          accept=".pdf"
+                          onChange={(e) => handleFileUpload(subject.id, e)}
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                          id={`upload-${subject.id}`}
+                        />
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          disabled={uploadingSubject === subject.id}
+                        >
+                          <Upload className="h-4 w-4 mr-2" />
+                          {uploadingSubject === subject.id ? 'Uploading...' : 'Upload PDF'}
+                        </Button>
+                      </div>
                     </div>
                   </CardHeader>
 
