@@ -10,6 +10,7 @@ export function Navigation() {
   const navigation = [
     { name: "Home", href: "/" },
     { name: "Skills", href: "/skills" },
+    { name: "Jobs", href: "/jobs" },
     { name: "Dashboard", href: "/dashboard" },
     { name: "Chat", href: "/chat" },
   ];
