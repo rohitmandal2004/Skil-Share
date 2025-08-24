@@ -458,6 +458,129 @@ export default function PlacementPrep() {
         </div>
       </section>
 
+      {/* Subject Notes Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Subject Notes & Study Materials
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Access comprehensive notes for core computer science subjects and upload your own study materials
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {subjectNotes.map((subject) => {
+              const Icon = subject.icon;
+              return (
+                <Card key={subject.id} className="hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-start justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className={`p-3 rounded-lg ${subject.bgColor}`}>
+                          <Icon className={`h-6 w-6 ${subject.color}`} />
+                        </div>
+                        <div>
+                          <CardTitle className="text-lg">{subject.subject}</CardTitle>
+                          <p className="text-sm text-gray-600 mt-1">
+                            {subject.uploadedNotes.length} notes uploaded
+                          </p>
+                        </div>
+                      </div>
+                      <Button size="sm" variant="outline">
+                        <Upload className="h-4 w-4 mr-2" />
+                        Upload PDF
+                      </Button>
+                    </div>
+                  </CardHeader>
+
+                  <CardContent>
+                    {/* Subject Topics */}
+                    <div className="mb-4">
+                      <h4 className="text-sm font-medium text-gray-900 mb-2">Key Topics:</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {subject.topics.map((topic, index) => (
+                          <Badge key={index} variant="secondary" className="text-xs">
+                            {topic}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Uploaded Notes */}
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <h4 className="text-sm font-medium text-gray-900">Uploaded Notes:</h4>
+                        {subject.uploadedNotes.length > 0 && (
+                          <Button variant="ghost" size="sm" className="text-xs">
+                            View All
+                          </Button>
+                        )}
+                      </div>
+
+                      {subject.uploadedNotes.length > 0 ? (
+                        <div className="space-y-3">
+                          {subject.uploadedNotes.slice(0, 2).map((note, index) => (
+                            <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                              <div className="flex items-center gap-3">
+                                <div className="p-2 bg-red-100 rounded">
+                                  <FileText className="h-4 w-4 text-red-600" />
+                                </div>
+                                <div>
+                                  <p className="text-sm font-medium text-gray-900">{note.name}</p>
+                                  <div className="flex items-center gap-2 text-xs text-gray-500">
+                                    <span>{note.size}</span>
+                                    <span>•</span>
+                                    <span>Uploaded {note.uploadDate}</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
+                                  <Eye className="h-4 w-4" />
+                                </Button>
+                                <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
+                                  <Download className="h-4 w-4" />
+                                </Button>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="text-center py-8 text-gray-500">
+                          <FileText className="h-12 w-12 mx-auto mb-3 text-gray-300" />
+                          <p className="text-sm">No notes uploaded yet</p>
+                          <p className="text-xs mt-1">Upload your first PDF to get started</p>
+                        </div>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+
+          {/* Upload Guidelines */}
+          <div className="mt-12 bg-blue-50 rounded-lg p-6">
+            <div className="flex items-start gap-3">
+              <div className="p-2 bg-blue-100 rounded-lg">
+                <FileText className="h-5 w-5 text-blue-600" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-2">Upload Guidelines</h3>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Maximum file size: 10 MB per PDF</li>
+                  <li>• Supported format: PDF only</li>
+                  <li>• Use clear, descriptive file names</li>
+                  <li>• Organize notes by topics for better accessibility</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
