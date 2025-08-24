@@ -109,13 +109,16 @@ export default function Index() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/skills">
                 <Button size="lg" className="text-lg px-8 py-3">
-                  Find a Tutor
+                  Start Learning
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-3">
-                Become a Tutor
-              </Button>
+              <Link to="/jobs">
+                <Button size="lg" variant="outline" className="text-lg px-8 py-3">
+                  Find Jobs
+                  <Briefcase className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
