@@ -215,6 +215,23 @@ const practiceTests = [
 ];
 
 export default function PlacementPrep() {
+  const [uploadingSubject, setUploadingSubject] = useState<number | null>(null);
+
+  const handleFileUpload = (subjectId: number, event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file && file.type === 'application/pdf') {
+      setUploadingSubject(subjectId);
+      // Simulate upload process
+      setTimeout(() => {
+        setUploadingSubject(null);
+        // Here you would typically handle the actual file upload
+        console.log(`Uploading ${file.name} for subject ${subjectId}`);
+      }, 2000);
+    } else {
+      alert('Please select a valid PDF file.');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
