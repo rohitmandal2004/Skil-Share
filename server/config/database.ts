@@ -4,7 +4,8 @@ import mysql from "mysql2/promise";
 // MongoDB Configuration
 export const connectMongoDB = async () => {
   try {
-    const mongoURI = process.env.MONGODB_URI || "mongodb://localhost:27017/skillshare";
+    const mongoURI =
+      process.env.MONGODB_URI || "mongodb://localhost:27017/skillshare";
     await mongoose.connect(mongoURI);
     console.log("✅ Connected to MongoDB successfully");
   } catch (error) {
@@ -23,7 +24,7 @@ export const createMySQLConnection = async () => {
       database: process.env.MYSQL_DATABASE || "skillshare",
       port: parseInt(process.env.MYSQL_PORT || "3306"),
     });
-    
+
     console.log("✅ Connected to MySQL successfully");
     return connection;
   } catch (error) {
@@ -35,7 +36,7 @@ export const createMySQLConnection = async () => {
 // Database choice based on environment variable
 export const initializeDatabase = async () => {
   const dbType = process.env.DATABASE_TYPE || "mongodb"; // "mongodb" or "mysql"
-  
+
   if (dbType === "mongodb") {
     await connectMongoDB();
   } else if (dbType === "mysql") {

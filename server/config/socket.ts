@@ -20,7 +20,7 @@ export const initializeSocket = (httpServer: HTTPServer) => {
   // Authentication middleware for Socket.io
   io.use((socket: AuthenticatedSocket, next) => {
     const token = socket.handshake.auth.token;
-    
+
     if (!token) {
       return next(new Error("Authentication error: No token provided"));
     }
@@ -55,31 +55,30 @@ export const initializeSocket = (httpServer: HTTPServer) => {
     });
 
     // Handle sending messages
-    socket.on("send_message", (data: {
-      chatId: string;
-      message: string;
-      receiverId?: string;
-    }) => {
-      const messageData = {
-        id: generateMessageId(),
-        senderId: socket.userId,
-        senderEmail: socket.userEmail,
-        message: data.message,
-        timestamp: new Date().toISOString(),
-        chatId: data.chatId,
-      };
+    socket.on(
+      "send_message",
+      (data: { chatId: string; message: string; receiverId?: string }) => {
+        const messageData = {
+          id: generateMessageId(),
+          senderId: socket.userId,
+          senderEmail: socket.userEmail,
+          message: data.message,
+          timestamp: new Date().toISOString(),
+          chatId: data.chatId,
+        };
 
-      // Broadcast to chat room
-      socket.to(`chat_${data.chatId}`).emit("new_message", messageData);
-      
-      // If it's a direct message, also send to specific user
-      if (data.receiverId) {
-        socket.to(`user_${data.receiverId}`).emit("new_message", messageData);
-      }
-      
-      // Save message to database (implement this based on your DB choice)
-      // await saveMessageToDatabase(messageData);
-    });
+        // Broadcast to chat room
+        socket.to(`chat_${data.chatId}`).emit("new_message", messageData);
+
+        // If it's a direct message, also send to specific user
+        if (data.receiverId) {
+          socket.to(`user_${data.receiverId}`).emit("new_message", messageData);
+        }
+
+        // Save message to database (implement this based on your DB choice)
+        // await saveMessageToDatabase(messageData);
+      },
+    );
 
     // Handle typing indicators
     socket.on("typing_start", (data: { chatId: string }) => {
@@ -96,45 +95,57 @@ export const initializeSocket = (httpServer: HTTPServer) => {
     });
 
     // Handle notifications
-    socket.on("send_notification", (data: {
-      receiverId: string;
-      type: "session_booked" | "message" | "skill_completed" | "job_application";
-      title: string;
-      message: string;
-    }) => {
-      const notificationData = {
-        id: generateNotificationId(),
-        senderId: socket.userId,
-        receiverId: data.receiverId,
-        type: data.type,
-        title: data.title,
-        message: data.message,
-        timestamp: new Date().toISOString(),
-        read: false,
-      };
+    socket.on(
+      "send_notification",
+      (data: {
+        receiverId: string;
+        type:
+          | "session_booked"
+          | "message"
+          | "skill_completed"
+          | "job_application";
+        title: string;
+        message: string;
+      }) => {
+        const notificationData = {
+          id: generateNotificationId(),
+          senderId: socket.userId,
+          receiverId: data.receiverId,
+          type: data.type,
+          title: data.title,
+          message: data.message,
+          timestamp: new Date().toISOString(),
+          read: false,
+        };
 
-      // Send notification to specific user
-      socket.to(`user_${data.receiverId}`).emit("new_notification", notificationData);
-      
-      // Save notification to database
-      // await saveNotificationToDatabase(notificationData);
-    });
+        // Send notification to specific user
+        socket
+          .to(`user_${data.receiverId}`)
+          .emit("new_notification", notificationData);
+
+        // Save notification to database
+        // await saveNotificationToDatabase(notificationData);
+      },
+    );
 
     // Handle session updates (for tutoring sessions)
-    socket.on("session_update", (data: {
-      sessionId: string;
-      status: "started" | "ended" | "paused";
-      participants: string[];
-    }) => {
-      // Notify all participants
-      data.participants.forEach(participantId => {
-        socket.to(`user_${participantId}`).emit("session_status_update", {
-          sessionId: data.sessionId,
-          status: data.status,
-          timestamp: new Date().toISOString(),
+    socket.on(
+      "session_update",
+      (data: {
+        sessionId: string;
+        status: "started" | "ended" | "paused";
+        participants: string[];
+      }) => {
+        // Notify all participants
+        data.participants.forEach((participantId) => {
+          socket.to(`user_${participantId}`).emit("session_status_update", {
+            sessionId: data.sessionId,
+            status: data.status,
+            timestamp: new Date().toISOString(),
+          });
         });
-      });
-    });
+      },
+    );
 
     // Handle user presence
     socket.on("update_presence", (status: "online" | "away" | "busy") => {
@@ -148,7 +159,7 @@ export const initializeSocket = (httpServer: HTTPServer) => {
     // Handle disconnection
     socket.on("disconnect", () => {
       console.log(`👋 User ${socket.userEmail} disconnected`);
-      
+
       // Broadcast user offline status
       socket.broadcast.emit("user_presence_update", {
         userId: socket.userId,

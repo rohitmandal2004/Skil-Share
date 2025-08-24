@@ -5,7 +5,7 @@ import path from "path";
 // Google Drive API Configuration
 class GoogleDriveService {
   private drive: any;
-  
+
   constructor() {
     this.initializeDrive();
   }
@@ -36,7 +36,7 @@ class GoogleDriveService {
         const oauth2Client = new google.auth.OAuth2(
           process.env.GOOGLE_CLIENT_ID,
           process.env.GOOGLE_CLIENT_SECRET,
-          process.env.GOOGLE_REDIRECT_URI
+          process.env.GOOGLE_REDIRECT_URI,
         );
 
         oauth2Client.setCredentials({
@@ -57,8 +57,12 @@ class GoogleDriveService {
   async uploadPDF(
     filePath: string,
     fileName: string,
-    folderId?: string
-  ): Promise<{ id: string; webViewLink: string; webContentLink: string } | null> {
+    folderId?: string,
+  ): Promise<{
+    id: string;
+    webViewLink: string;
+    webContentLink: string;
+  } | null> {
     try {
       if (!this.drive) {
         throw new Error("Google Drive API not initialized");
@@ -98,7 +102,10 @@ class GoogleDriveService {
   }
 
   // Create folder in Google Drive
-  async createFolder(folderName: string, parentFolderId?: string): Promise<string | null> {
+  async createFolder(
+    folderName: string,
+    parentFolderId?: string,
+  ): Promise<string | null> {
     try {
       if (!this.drive) {
         throw new Error("Google Drive API not initialized");
@@ -151,7 +158,8 @@ class GoogleDriveService {
 
       const response = await this.drive.files.get({
         fileId: fileId,
-        fields: "id,name,mimeType,size,createdTime,modifiedTime,webViewLink,webContentLink",
+        fields:
+          "id,name,mimeType,size,createdTime,modifiedTime,webViewLink,webContentLink",
       });
 
       return response.data;
@@ -178,7 +186,8 @@ class GoogleDriveService {
 
       const response = await this.drive.files.list({
         q: searchQuery || undefined,
-        fields: "nextPageToken, files(id, name, mimeType, size, createdTime, modifiedTime)",
+        fields:
+          "nextPageToken, files(id, name, mimeType, size, createdTime, modifiedTime)",
         orderBy: "modifiedTime desc",
       });
 
@@ -224,22 +233,23 @@ export const googleDriveService = new GoogleDriveService();
 // Utility function to organize files by subject
 export const getSubjectFolderId = async (subject: string): Promise<string> => {
   const folderMap: { [key: string]: string } = {
-    "dsa": process.env.DRIVE_DSA_FOLDER_ID || "",
-    "dbms": process.env.DRIVE_DBMS_FOLDER_ID || "",
-    "oops": process.env.DRIVE_OOPS_FOLDER_ID || "",
-    "os": process.env.DRIVE_OS_FOLDER_ID || "",
-    "networks": process.env.DRIVE_NETWORKS_FOLDER_ID || "",
+    dsa: process.env.DRIVE_DSA_FOLDER_ID || "",
+    dbms: process.env.DRIVE_DBMS_FOLDER_ID || "",
+    oops: process.env.DRIVE_OOPS_FOLDER_ID || "",
+    os: process.env.DRIVE_OS_FOLDER_ID || "",
+    networks: process.env.DRIVE_NETWORKS_FOLDER_ID || "",
     "system-design": process.env.DRIVE_SYSTEM_DESIGN_FOLDER_ID || "",
   };
 
   let folderId = folderMap[subject.toLowerCase()];
-  
+
   // Create folder if it doesn't exist
   if (!folderId) {
-    folderId = await googleDriveService.createFolder(
-      `SkillShare - ${subject.toUpperCase()}`,
-      process.env.DRIVE_ROOT_FOLDER_ID
-    ) || "";
+    folderId =
+      (await googleDriveService.createFolder(
+        `SkillShare - ${subject.toUpperCase()}`,
+        process.env.DRIVE_ROOT_FOLDER_ID,
+      )) || "";
   }
 
   return folderId;

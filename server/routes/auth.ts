@@ -1,5 +1,9 @@
 import { RequestHandler } from "express";
-import { generateToken, hashPassword, comparePassword } from "../middleware/auth";
+import {
+  generateToken,
+  hashPassword,
+  comparePassword,
+} from "../middleware/auth";
 import { verifyFirebaseToken } from "../config/firebase";
 
 // User model interfaces (adapt based on your chosen database)
@@ -33,7 +37,7 @@ export const registerUser: RequestHandler = async (req, res) => {
     }
 
     // Check if user already exists
-    const existingUser = mockUsers.find(user => user.email === email);
+    const existingUser = mockUsers.find((user) => user.email === email);
     if (existingUser) {
       return res.status(409).json({
         success: false,
@@ -100,7 +104,7 @@ export const loginUser: RequestHandler = async (req, res) => {
     }
 
     // Find user
-    const user = mockUsers.find(u => u.email === email);
+    const user = mockUsers.find((u) => u.email === email);
     if (!user || !user.password) {
       return res.status(401).json({
         success: false,
@@ -169,7 +173,7 @@ export const firebaseAuth: RequestHandler = async (req, res) => {
     }
 
     // Check if user exists in our database
-    let user = mockUsers.find(u => u.email === firebaseUser.email);
+    let user = mockUsers.find((u) => u.email === firebaseUser.email);
 
     // Create user if doesn't exist
     if (!user) {
@@ -216,8 +220,8 @@ export const firebaseAuth: RequestHandler = async (req, res) => {
 // Get Current User Profile
 export const getUserProfile: RequestHandler = async (req, res) => {
   try {
-    const user = mockUsers.find(u => u.id === req.user?.id);
-    
+    const user = mockUsers.find((u) => u.id === req.user?.id);
+
     if (!user) {
       return res.status(404).json({
         success: false,
@@ -245,8 +249,8 @@ export const getUserProfile: RequestHandler = async (req, res) => {
 export const updateUserProfile: RequestHandler = async (req, res) => {
   try {
     const { name, skills, profilePicture } = req.body;
-    
-    const userIndex = mockUsers.findIndex(u => u.id === req.user?.id);
+
+    const userIndex = mockUsers.findIndex((u) => u.id === req.user?.id);
     if (userIndex === -1) {
       return res.status(404).json({
         success: false,

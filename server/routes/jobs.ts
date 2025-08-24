@@ -50,7 +50,8 @@ const mockJobs: Job[] = [
     type: "Full-time",
     category: "Engineering",
     companySize: "50-200",
-    description: "Join our team to build cutting-edge React applications that serve millions of users worldwide.",
+    description:
+      "Join our team to build cutting-edge React applications that serve millions of users worldwide.",
     skills: ["React", "TypeScript", "Next.js", "GraphQL"],
     posted: "2 days ago",
     applicants: 23,
@@ -58,18 +59,18 @@ const mockJobs: Job[] = [
       "5+ years of React development experience",
       "Strong TypeScript skills",
       "Experience with modern frontend tools",
-      "Understanding of web performance optimization"
+      "Understanding of web performance optimization",
     ],
     benefits: [
       "Competitive salary and equity",
       "Health insurance",
       "Remote work flexibility",
-      "Professional development budget"
+      "Professional development budget",
     ],
     isActive: true,
     postedBy: "hr@techflow.com",
     createdAt: new Date("2024-12-23"),
-    updatedAt: new Date("2024-12-23")
+    updatedAt: new Date("2024-12-23"),
   },
   // Add more mock jobs as needed
 ];
@@ -88,35 +89,40 @@ export const getJobs: RequestHandler = async (req, res) => {
       page = 1,
       limit = 10,
       sortBy = "createdAt",
-      sortOrder = "desc"
+      sortOrder = "desc",
     } = req.query;
 
-    let filteredJobs = mockJobs.filter(job => job.isActive);
+    let filteredJobs = mockJobs.filter((job) => job.isActive);
 
     // Apply filters
     if (category && category !== "All") {
-      filteredJobs = filteredJobs.filter(job => job.category === category);
+      filteredJobs = filteredJobs.filter((job) => job.category === category);
     }
 
     if (type && type !== "All") {
-      filteredJobs = filteredJobs.filter(job => job.type === type);
+      filteredJobs = filteredJobs.filter((job) => job.type === type);
     }
 
     if (experience && experience !== "All") {
-      filteredJobs = filteredJobs.filter(job => job.experience === experience);
+      filteredJobs = filteredJobs.filter(
+        (job) => job.experience === experience,
+      );
     }
 
     if (location && location !== "All") {
-      filteredJobs = filteredJobs.filter(job => job.locationType === location);
+      filteredJobs = filteredJobs.filter(
+        (job) => job.locationType === location,
+      );
     }
 
     if (search) {
       const searchTerm = (search as string).toLowerCase();
-      filteredJobs = filteredJobs.filter(job =>
-        job.title.toLowerCase().includes(searchTerm) ||
-        job.company.toLowerCase().includes(searchTerm) ||
-        job.description.toLowerCase().includes(searchTerm) ||
-        job.skills.some(skill => skill.toLowerCase().includes(searchTerm))
+      filteredJobs = filteredJobs.filter(
+        (job) =>
+          job.title.toLowerCase().includes(searchTerm) ||
+          job.company.toLowerCase().includes(searchTerm) ||
+          job.description.toLowerCase().includes(searchTerm) ||
+          job.skills.some((skill) => skill.toLowerCase().includes(searchTerm)),
       );
     }
 
@@ -124,7 +130,7 @@ export const getJobs: RequestHandler = async (req, res) => {
     filteredJobs.sort((a, b) => {
       const aValue = a[sortBy as keyof Job];
       const bValue = b[sortBy as keyof Job];
-      
+
       if (sortOrder === "desc") {
         return bValue > aValue ? 1 : -1;
       } else {
@@ -164,8 +170,8 @@ export const getJobs: RequestHandler = async (req, res) => {
 export const getJobById: RequestHandler = async (req, res) => {
   try {
     const { id } = req.params;
-    
-    const job = mockJobs.find(j => j.id === id && j.isActive);
+
+    const job = mockJobs.find((j) => j.id === id && j.isActive);
     if (!job) {
       return res.status(404).json({
         success: false,
@@ -201,7 +207,7 @@ export const applyForJob: RequestHandler = async (req, res) => {
     }
 
     // Check if job exists
-    const job = mockJobs.find(j => j.id === jobId && j.isActive);
+    const job = mockJobs.find((j) => j.id === jobId && j.isActive);
     if (!job) {
       return res.status(404).json({
         success: false,
@@ -211,7 +217,7 @@ export const applyForJob: RequestHandler = async (req, res) => {
 
     // Check if user already applied
     const existingApplication = mockApplications.find(
-      app => app.jobId === jobId && app.userId === userId
+      (app) => app.jobId === jobId && app.userId === userId,
     );
     if (existingApplication) {
       return res.status(409).json({
@@ -254,7 +260,7 @@ export const applyForJob: RequestHandler = async (req, res) => {
 export const getUserApplications: RequestHandler = async (req, res) => {
   try {
     const userId = req.user?.id;
-    
+
     if (!userId) {
       return res.status(401).json({
         success: false,
@@ -262,21 +268,25 @@ export const getUserApplications: RequestHandler = async (req, res) => {
       });
     }
 
-    const userApplications = mockApplications.filter(app => app.userId === userId);
-    
+    const userApplications = mockApplications.filter(
+      (app) => app.userId === userId,
+    );
+
     // Populate with job details
-    const applicationsWithJobs = userApplications.map(app => {
-      const job = mockJobs.find(j => j.id === app.jobId);
+    const applicationsWithJobs = userApplications.map((app) => {
+      const job = mockJobs.find((j) => j.id === app.jobId);
       return {
         ...app,
-        job: job ? {
-          id: job.id,
-          title: job.title,
-          company: job.company,
-          companyLogo: job.companyLogo,
-          location: job.location,
-          type: job.type,
-        } : null,
+        job: job
+          ? {
+              id: job.id,
+              title: job.title,
+              company: job.company,
+              companyLogo: job.companyLogo,
+              location: job.location,
+              type: job.type,
+            }
+          : null,
       };
     });
 
@@ -366,7 +376,9 @@ export const updateApplicationStatus: RequestHandler = async (req, res) => {
     const { applicationId } = req.params;
     const { status, notes } = req.body;
 
-    const applicationIndex = mockApplications.findIndex(app => app.id === applicationId);
+    const applicationIndex = mockApplications.findIndex(
+      (app) => app.id === applicationId,
+    );
     if (applicationIndex === -1) {
       return res.status(404).json({
         success: false,
@@ -397,20 +409,26 @@ export const updateApplicationStatus: RequestHandler = async (req, res) => {
 // Get job categories and stats
 export const getJobStats: RequestHandler = async (req, res) => {
   try {
-    const activeJobs = mockJobs.filter(job => job.isActive);
-    
-    const categories = [...new Set(activeJobs.map(job => job.category))];
-    const companies = [...new Set(activeJobs.map(job => job.company))];
-    
-    const typeStats = activeJobs.reduce((acc, job) => {
-      acc[job.type] = (acc[job.type] || 0) + 1;
-      return acc;
-    }, {} as Record<string, number>);
+    const activeJobs = mockJobs.filter((job) => job.isActive);
 
-    const locationStats = activeJobs.reduce((acc, job) => {
-      acc[job.locationType] = (acc[job.locationType] || 0) + 1;
-      return acc;
-    }, {} as Record<string, number>);
+    const categories = [...new Set(activeJobs.map((job) => job.category))];
+    const companies = [...new Set(activeJobs.map((job) => job.company))];
+
+    const typeStats = activeJobs.reduce(
+      (acc, job) => {
+        acc[job.type] = (acc[job.type] || 0) + 1;
+        return acc;
+      },
+      {} as Record<string, number>,
+    );
+
+    const locationStats = activeJobs.reduce(
+      (acc, job) => {
+        acc[job.locationType] = (acc[job.locationType] || 0) + 1;
+        return acc;
+      },
+      {} as Record<string, number>,
+    );
 
     res.json({
       success: true,

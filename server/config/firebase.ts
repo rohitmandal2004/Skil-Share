@@ -1,31 +1,33 @@
 import admin from "firebase-admin";
 import { initializeApp } from "firebase/app";
-import { 
-  getAuth, 
-  signInWithEmailAndPassword, 
+import {
+  getAuth,
+  signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  signOut as firebaseSignOut
+  signOut as firebaseSignOut,
 } from "firebase/auth";
 
 // Firebase Admin SDK Configuration (Server-side)
 const initializeFirebaseAdmin = () => {
   if (!admin.apps.length) {
     const serviceAccountKey = process.env.FIREBASE_SERVICE_ACCOUNT_KEY;
-    
+
     if (serviceAccountKey) {
       const serviceAccount = JSON.parse(serviceAccountKey);
-      
+
       admin.initializeApp({
         credential: admin.credential.cert(serviceAccount),
         databaseURL: process.env.FIREBASE_DATABASE_URL,
       });
-      
+
       console.log("✅ Firebase Admin SDK initialized");
     } else {
-      console.warn("⚠️ Firebase Admin SDK not initialized - missing service account key");
+      console.warn(
+        "⚠️ Firebase Admin SDK not initialized - missing service account key",
+      );
     }
   }
-  
+
   return admin;
 };
 
@@ -68,7 +70,11 @@ export const firebaseAuthHelpers = {
   // Sign in with email and password
   signIn: async (email: string, password: string) => {
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
       return userCredential.user;
     } catch (error) {
       throw error;
@@ -78,7 +84,11 @@ export const firebaseAuthHelpers = {
   // Create user with email and password
   signUp: async (email: string, password: string) => {
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
       return userCredential.user;
     } catch (error) {
       throw error;
@@ -96,22 +106,26 @@ export const firebaseAuthHelpers = {
 };
 
 // Firebase middleware for Express
-export const authenticateFirebaseToken = async (req: any, res: any, next: any) => {
+export const authenticateFirebaseToken = async (
+  req: any,
+  res: any,
+  next: any,
+) => {
   const authHeader = req.headers.authorization;
   const token = authHeader && authHeader.split(" ")[1]; // Bearer TOKEN
 
   if (!token) {
-    return res.status(401).json({ 
-      success: false, 
-      message: "Firebase ID token required" 
+    return res.status(401).json({
+      success: false,
+      message: "Firebase ID token required",
     });
   }
 
   const decoded = await verifyFirebaseToken(token);
   if (!decoded) {
-    return res.status(403).json({ 
-      success: false, 
-      message: "Invalid Firebase token" 
+    return res.status(403).json({
+      success: false,
+      message: "Invalid Firebase token",
     });
   }
 
