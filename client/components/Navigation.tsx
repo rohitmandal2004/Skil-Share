@@ -11,6 +11,7 @@ export function Navigation() {
     { name: "Home", href: "/" },
     { name: "Skills", href: "/skills" },
     { name: "Jobs", href: "/jobs" },
+    { name: "Placement Prep", href: "/placement-prep" },
     { name: "Dashboard", href: "/dashboard" },
     { name: "Chat", href: "/chat" },
   ];
