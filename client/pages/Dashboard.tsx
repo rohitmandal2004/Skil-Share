@@ -3,15 +3,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { 
-  BookOpen, 
-  MessageCircle, 
-  Users, 
-  Calendar, 
-  Code, 
-  Database, 
-  Globe, 
-  GitBranch, 
+import {
+  BookOpen,
+  MessageCircle,
+  Users,
+  Calendar,
+  Code,
+  Database,
+  Globe,
+  GitBranch,
   Brain,
   TrendingUp,
   Target,
@@ -26,7 +26,7 @@ import {
   Trophy,
   Cpu,
   Palette,
-  Shield
+  Shield,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -117,11 +117,27 @@ const userSkills = [
 ];
 
 const recommendedSkills = [
-  { name: "TypeScript", reason: "Natural progression from JavaScript", priority: "High" },
-  { name: "Node.js", reason: "Complete your full-stack journey", priority: "High" },
-  { name: "Docker", reason: "Essential for modern deployment", priority: "Medium" },
+  {
+    name: "TypeScript",
+    reason: "Natural progression from JavaScript",
+    priority: "High",
+  },
+  {
+    name: "Node.js",
+    reason: "Complete your full-stack journey",
+    priority: "High",
+  },
+  {
+    name: "Docker",
+    reason: "Essential for modern deployment",
+    priority: "Medium",
+  },
   { name: "AWS", reason: "Cloud skills in high demand", priority: "Medium" },
-  { name: "System Design", reason: "Prepare for senior roles", priority: "High" },
+  {
+    name: "System Design",
+    reason: "Prepare for senior roles",
+    priority: "High",
+  },
 ];
 
 const recentActivities = [
@@ -130,28 +146,28 @@ const recentActivities = [
     title: "Completed Python Advanced Concepts",
     time: "2 hours ago",
     icon: CheckCircle2,
-    color: "text-green-600"
+    color: "text-green-600",
   },
   {
-    type: "achievement", 
+    type: "achievement",
     title: "Earned 'DSA Master' badge",
     time: "1 day ago",
     icon: Trophy,
-    color: "text-yellow-600"
+    color: "text-yellow-600",
   },
   {
     type: "session",
     title: "Started JavaScript ES6 Features",
     time: "2 days ago",
     icon: BookOpen,
-    color: "text-blue-600"
+    color: "text-blue-600",
   },
   {
     type: "milestone",
     title: "Reached 7-day learning streak!",
     time: "3 days ago",
     icon: Zap,
-    color: "text-orange-600"
+    color: "text-orange-600",
   },
 ];
 
@@ -159,18 +175,26 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Welcome Header */}
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Welcome back, {candidateProfile.name}! 👋</h1>
-              <p className="text-gray-600 mt-2">Here's your learning progress and skill development journey</p>
+              <h1 className="text-3xl font-bold text-gray-900">
+                Welcome back, {candidateProfile.name}! 👋
+              </h1>
+              <p className="text-gray-600 mt-2">
+                Here's your learning progress and skill development journey
+              </p>
             </div>
             <div className="text-right">
-              <Badge variant="secondary" className="mb-2">{candidateProfile.level}</Badge>
-              <p className="text-sm text-gray-500">Member since {candidateProfile.joinDate}</p>
+              <Badge variant="secondary" className="mb-2">
+                {candidateProfile.level}
+              </Badge>
+              <p className="text-sm text-gray-500">
+                Member since {candidateProfile.joinDate}
+              </p>
             </div>
           </div>
         </div>
@@ -179,40 +203,54 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Skills Mastered</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                Skills Mastered
+              </CardTitle>
               <Target className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{candidateProfile.totalSkills}</div>
+              <div className="text-2xl font-bold">
+                {candidateProfile.totalSkills}
+              </div>
               <p className="text-xs text-muted-foreground">+3 this month</p>
             </CardContent>
           </Card>
-          
+
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Sessions Completed</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                Sessions Completed
+              </CardTitle>
               <BookOpen className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{candidateProfile.completedSessions}</div>
+              <div className="text-2xl font-bold">
+                {candidateProfile.completedSessions}
+              </div>
               <p className="text-xs text-muted-foreground">+5 this week</p>
             </CardContent>
           </Card>
-          
+
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Learning Streak</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                Learning Streak
+              </CardTitle>
               <Zap className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{candidateProfile.learningStreak}</div>
+              <div className="text-2xl font-bold">
+                {candidateProfile.learningStreak}
+              </div>
               <p className="text-xs text-muted-foreground">days in a row 🔥</p>
             </CardContent>
           </Card>
-          
+
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Avg Progress</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                Avg Progress
+              </CardTitle>
               <TrendingUp className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
@@ -234,12 +272,15 @@ export default function Dashboard() {
                 </Button>
               </Link>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {userSkills.map((skill, index) => {
                 const Icon = skill.icon;
                 return (
-                  <Card key={index} className="hover:shadow-lg transition-shadow">
+                  <Card
+                    key={index}
+                    className="hover:shadow-lg transition-shadow"
+                  >
                     <CardHeader className="pb-3">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
@@ -247,36 +288,54 @@ export default function Dashboard() {
                             <Icon className={`h-5 w-5 ${skill.color}`} />
                           </div>
                           <div>
-                            <CardTitle className="text-base">{skill.name}</CardTitle>
-                            <p className="text-sm text-gray-500">{skill.category}</p>
+                            <CardTitle className="text-base">
+                              {skill.name}
+                            </CardTitle>
+                            <p className="text-sm text-gray-500">
+                              {skill.category}
+                            </p>
                           </div>
                         </div>
-                        <Badge variant={skill.level === 'Advanced' ? 'default' : skill.level === 'Intermediate' ? 'secondary' : 'outline'}>
+                        <Badge
+                          variant={
+                            skill.level === "Advanced"
+                              ? "default"
+                              : skill.level === "Intermediate"
+                                ? "secondary"
+                                : "outline"
+                          }
+                        >
                           {skill.level}
                         </Badge>
                       </div>
                     </CardHeader>
-                    
+
                     <CardContent>
                       <div className="space-y-3">
                         <div>
                           <div className="flex justify-between text-sm mb-1">
                             <span className="text-gray-600">Progress</span>
-                            <span className="font-medium">{skill.progress}%</span>
+                            <span className="font-medium">
+                              {skill.progress}%
+                            </span>
                           </div>
                           <Progress value={skill.progress} className="h-2" />
                         </div>
-                        
+
                         <div className="flex justify-between text-sm text-gray-500">
                           <span>{skill.sessions} sessions</span>
                           <span>Last: {skill.lastSession}</span>
                         </div>
-                        
+
                         <div className="pt-2 border-t">
-                          <p className="text-sm text-gray-600 mb-2">Next Goal:</p>
-                          <p className="text-sm font-medium text-gray-900">{skill.nextGoal}</p>
+                          <p className="text-sm text-gray-600 mb-2">
+                            Next Goal:
+                          </p>
+                          <p className="text-sm font-medium text-gray-900">
+                            {skill.nextGoal}
+                          </p>
                         </div>
-                        
+
                         <Link to="/skills">
                           <Button size="sm" className="w-full">
                             Continue Learning
@@ -297,17 +356,26 @@ export default function Dashboard() {
             <Card>
               <CardHeader>
                 <CardTitle className="text-lg">Recommended for You</CardTitle>
-                <p className="text-sm text-gray-600">Skills to boost your career</p>
+                <p className="text-sm text-gray-600">
+                  Skills to boost your career
+                </p>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   {recommendedSkills.map((skill, index) => (
-                    <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div
+                      key={index}
+                      className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                    >
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <h4 className="font-medium text-sm">{skill.name}</h4>
-                          <Badge 
-                            variant={skill.priority === 'High' ? 'destructive' : 'secondary'} 
+                          <Badge
+                            variant={
+                              skill.priority === "High"
+                                ? "destructive"
+                                : "secondary"
+                            }
                             className="text-xs"
                           >
                             {skill.priority}
@@ -344,8 +412,12 @@ export default function Dashboard() {
                           <Icon className={`h-4 w-4 ${activity.color}`} />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-gray-900">{activity.title}</p>
-                          <p className="text-xs text-gray-500">{activity.time}</p>
+                          <p className="text-sm font-medium text-gray-900">
+                            {activity.title}
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            {activity.time}
+                          </p>
                         </div>
                       </div>
                     );

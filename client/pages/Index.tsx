@@ -92,7 +92,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-purple-100/50"></div>
@@ -103,8 +103,9 @@ export default function Index() {
               <span className="block text-primary">Development Platform</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Learn skills with expert tutors, find your dream job, prepare for interviews, and track your progress.
-              Everything you need to advance your career in one comprehensive platform.
+              Learn skills with expert tutors, find your dream job, prepare for
+              interviews, and track your progress. Everything you need to
+              advance your career in one comprehensive platform.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/skills">
@@ -114,7 +115,11 @@ export default function Index() {
                 </Button>
               </Link>
               <Link to="/jobs">
-                <Button size="lg" variant="outline" className="text-lg px-8 py-3">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-8 py-3"
+                >
                   Find Jobs
                   <Briefcase className="ml-2 h-5 w-5" />
                 </Button>
@@ -129,7 +134,9 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-primary mb-2">10,000+</div>
+              <div className="text-4xl font-bold text-primary mb-2">
+                10,000+
+              </div>
               <div className="text-gray-600">Expert Tutors</div>
             </div>
             <div>
@@ -156,7 +163,8 @@ export default function Index() {
               Explore Popular Categories
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Discover tutors across hundreds of subjects and find the perfect match for your learning goals.
+              Discover tutors across hundreds of subjects and find the perfect
+              match for your learning goals.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -168,7 +176,9 @@ export default function Index() {
                   className="p-6 hover:shadow-lg transition-shadow cursor-pointer"
                 >
                   <CardContent className="p-0">
-                    <div className={`inline-flex p-3 rounded-lg ${category.bgColor} mb-4`}>
+                    <div
+                      className={`inline-flex p-3 rounded-lg ${category.bgColor} mb-4`}
+                    >
                       <Icon className={`h-6 w-6 ${category.color}`} />
                     </div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -191,7 +201,8 @@ export default function Index() {
               Complete Career Development Platform
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              From learning new skills to landing your dream job - everything you need to advance your career in one platform
+              From learning new skills to landing your dream job - everything
+              you need to advance your career in one platform
             </p>
           </div>
 
@@ -202,9 +213,12 @@ export default function Index() {
                   <div className="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
                     <BookOpen className="h-8 w-8 text-blue-600" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Learn Skills</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Learn Skills
+                  </h3>
                   <p className="text-gray-600 text-sm">
-                    Connect with expert tutors and master new skills through personalized one-on-one sessions
+                    Connect with expert tutors and master new skills through
+                    personalized one-on-one sessions
                   </p>
                 </CardContent>
               </Card>
@@ -216,9 +230,12 @@ export default function Index() {
                   <div className="bg-green-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-100 transition-colors">
                     <Briefcase className="h-8 w-8 text-green-600" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Find Jobs</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Find Jobs
+                  </h3>
                   <p className="text-gray-600 text-sm">
-                    Discover opportunities from top companies worldwide with advanced filtering and search
+                    Discover opportunities from top companies worldwide with
+                    advanced filtering and search
                   </p>
                 </CardContent>
               </Card>
@@ -230,9 +247,12 @@ export default function Index() {
                   <div className="bg-purple-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-100 transition-colors">
                     <GraduationCap className="h-8 w-8 text-purple-600" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Placement Prep</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Placement Prep
+                  </h3>
                   <p className="text-gray-600 text-sm">
-                    Comprehensive interview preparation with mock interviews, coding practice, and company guides
+                    Comprehensive interview preparation with mock interviews,
+                    coding practice, and company guides
                   </p>
                 </CardContent>
               </Card>
@@ -244,9 +264,12 @@ export default function Index() {
                   <div className="bg-orange-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-100 transition-colors">
                     <BarChart3 className="h-8 w-8 text-orange-600" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Track Progress</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Track Progress
+                  </h3>
                   <p className="text-gray-600 text-sm">
-                    Monitor your learning journey with detailed analytics and personalized recommendations
+                    Monitor your learning journey with detailed analytics and
+                    personalized recommendations
                   </p>
                 </CardContent>
               </Card>
@@ -332,7 +355,8 @@ export default function Index() {
               Everything You Need to Succeed
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Our comprehensive platform provides all the tools and resources for your career growth
+              Our comprehensive platform provides all the tools and resources
+              for your career growth
             </p>
           </div>
 
@@ -342,9 +366,12 @@ export default function Index() {
                 <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Target className="h-10 w-10 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4">Personalized Learning</h3>
+                <h3 className="text-xl font-semibold mb-4">
+                  Personalized Learning
+                </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  AI-powered recommendations match you with the perfect tutors and learning paths based on your goals and learning style.
+                  AI-powered recommendations match you with the perfect tutors
+                  and learning paths based on your goals and learning style.
                 </p>
               </CardContent>
             </Card>
@@ -354,9 +381,12 @@ export default function Index() {
                 <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Calendar className="h-10 w-10 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4">Flexible Scheduling</h3>
+                <h3 className="text-xl font-semibold mb-4">
+                  Flexible Scheduling
+                </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Book sessions that fit your schedule with tutors available 24/7 across different time zones.
+                  Book sessions that fit your schedule with tutors available
+                  24/7 across different time zones.
                 </p>
               </CardContent>
             </Card>
@@ -368,7 +398,8 @@ export default function Index() {
                 </div>
                 <h3 className="text-xl font-semibold mb-4">Proven Results</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  95% of our users report significant improvement in their skills and 78% land their dream jobs within 6 months.
+                  95% of our users report significant improvement in their
+                  skills and 78% land their dream jobs within 6 months.
                 </p>
               </CardContent>
             </Card>
@@ -394,7 +425,8 @@ export default function Index() {
               </div>
               <h3 className="text-xl font-semibold mb-2">Choose Your Skill</h3>
               <p className="text-gray-600">
-                Browse our extensive catalog of subjects and find what you want to learn.
+                Browse our extensive catalog of subjects and find what you want
+                to learn.
               </p>
             </div>
             <div className="text-center">
@@ -403,7 +435,8 @@ export default function Index() {
               </div>
               <h3 className="text-xl font-semibold mb-2">Find Your Tutor</h3>
               <p className="text-gray-600">
-                Connect with verified experts who match your learning style and schedule.
+                Connect with verified experts who match your learning style and
+                schedule.
               </p>
             </div>
             <div className="text-center">
@@ -433,13 +466,20 @@ export default function Index() {
                 <CardContent className="p-0">
                   <div className="flex mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                      <Star
+                        key={i}
+                        className="h-5 w-5 fill-yellow-400 text-yellow-400"
+                      />
                     ))}
                   </div>
                   <p className="text-gray-600 mb-4">"{testimonial.content}"</p>
                   <div>
-                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                    <div className="text-sm text-gray-500">{testimonial.role}</div>
+                    <div className="font-semibold text-gray-900">
+                      {testimonial.name}
+                    </div>
+                    <div className="text-sm text-gray-500">
+                      {testimonial.role}
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -455,18 +495,26 @@ export default function Index() {
             Ready to Transform Your Career?
           </h2>
           <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of professionals who've advanced their careers with SkillShare.
-            Your dream job is just a step away.
+            Join thousands of professionals who've advanced their careers with
+            SkillShare. Your dream job is just a step away.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/placement-prep">
-              <Button size="lg" variant="secondary" className="text-lg px-8 py-3">
+              <Button
+                size="lg"
+                variant="secondary"
+                className="text-lg px-8 py-3"
+              >
                 Start Preparation
                 <GraduationCap className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link to="/jobs">
-              <Button size="lg" variant="outline" className="text-lg px-8 py-3 border-white text-white hover:bg-white hover:text-primary">
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-lg px-8 py-3 border-white text-white hover:bg-white hover:text-primary"
+              >
                 Explore Jobs
                 <Briefcase className="ml-2 h-5 w-5" />
               </Button>
@@ -482,33 +530,81 @@ export default function Index() {
             <div>
               <h3 className="font-semibold mb-4">For Students</h3>
               <ul className="space-y-2 text-gray-300">
-                <li><a href="#" className="hover:text-white">Find Tutors</a></li>
-                <li><a href="#" className="hover:text-white">Pricing</a></li>
-                <li><a href="#" className="hover:text-white">How it Works</a></li>
+                <li>
+                  <a href="#" className="hover:text-white">
+                    Find Tutors
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white">
+                    Pricing
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white">
+                    How it Works
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-4">For Tutors</h3>
               <ul className="space-y-2 text-gray-300">
-                <li><a href="#" className="hover:text-white">Become a Tutor</a></li>
-                <li><a href="#" className="hover:text-white">Tutor Resources</a></li>
-                <li><a href="#" className="hover:text-white">Success Stories</a></li>
+                <li>
+                  <a href="#" className="hover:text-white">
+                    Become a Tutor
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white">
+                    Tutor Resources
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white">
+                    Success Stories
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Support</h3>
               <ul className="space-y-2 text-gray-300">
-                <li><a href="#" className="hover:text-white">Help Center</a></li>
-                <li><a href="#" className="hover:text-white">Contact Us</a></li>
-                <li><a href="#" className="hover:text-white">Safety</a></li>
+                <li>
+                  <a href="#" className="hover:text-white">
+                    Help Center
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white">
+                    Contact Us
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white">
+                    Safety
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2 text-gray-300">
-                <li><a href="#" className="hover:text-white">About Us</a></li>
-                <li><a href="#" className="hover:text-white">Careers</a></li>
-                <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
+                <li>
+                  <a href="#" className="hover:text-white">
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white">
+                    Careers
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white">
+                    Privacy Policy
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

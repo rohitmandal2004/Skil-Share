@@ -27,7 +27,9 @@ export function Navigation() {
               <div className="p-2 bg-primary rounded-lg">
                 <BookOpen className="h-6 w-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-gray-900">SkillShare</span>
+              <span className="text-xl font-bold text-gray-900">
+                SkillShare
+              </span>
             </Link>
           </div>
 
@@ -93,7 +95,11 @@ export function Navigation() {
               </Link>
             ))}
             <div className="pt-4 space-y-2">
-              <Button variant="ghost" size="sm" className="w-full justify-start">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+              >
                 <User className="h-4 w-4 mr-2" />
                 Login
               </Button>

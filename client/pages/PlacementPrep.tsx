@@ -43,7 +43,12 @@ const preparationCategories = [
     icon: Code,
     color: "text-blue-600",
     bgColor: "bg-blue-50",
-    topics: ["Arrays & Strings", "Trees & Graphs", "Dynamic Programming", "System Design"],
+    topics: [
+      "Arrays & Strings",
+      "Trees & Graphs",
+      "Dynamic Programming",
+      "System Design",
+    ],
     progress: 65,
   },
   {
@@ -52,7 +57,12 @@ const preparationCategories = [
     icon: Brain,
     color: "text-purple-600",
     bgColor: "bg-purple-50",
-    topics: ["Logical Reasoning", "Quantitative Aptitude", "Verbal Ability", "Puzzles"],
+    topics: [
+      "Logical Reasoning",
+      "Quantitative Aptitude",
+      "Verbal Ability",
+      "Puzzles",
+    ],
     progress: 45,
   },
   {
@@ -61,7 +71,12 @@ const preparationCategories = [
     icon: MessageSquare,
     color: "text-green-600",
     bgColor: "bg-green-50",
-    topics: ["Tell Me About Yourself", "Behavioral Questions", "Situational Judgment", "Communication"],
+    topics: [
+      "Tell Me About Yourself",
+      "Behavioral Questions",
+      "Situational Judgment",
+      "Communication",
+    ],
     progress: 30,
   },
   {
@@ -70,7 +85,12 @@ const preparationCategories = [
     icon: BookOpen,
     color: "text-orange-600",
     bgColor: "bg-orange-50",
-    topics: ["Core Subjects", "Industry Trends", "Case Studies", "Project Discussion"],
+    topics: [
+      "Core Subjects",
+      "Industry Trends",
+      "Case Studies",
+      "Project Discussion",
+    ],
     progress: 55,
   },
 ];
@@ -95,8 +115,16 @@ const subjectNotes = [
     bgColor: "bg-blue-50",
     topics: ["Arrays", "LinkedList", "Trees", "Graphs", "DP", "Sorting"],
     uploadedNotes: [
-      { name: "DSA_Fundamentals.pdf", size: "2.3 MB", uploadDate: "2 days ago" },
-      { name: "Graph_Algorithms.pdf", size: "1.8 MB", uploadDate: "5 days ago" },
+      {
+        name: "DSA_Fundamentals.pdf",
+        size: "2.3 MB",
+        uploadDate: "2 days ago",
+      },
+      {
+        name: "Graph_Algorithms.pdf",
+        size: "1.8 MB",
+        uploadDate: "5 days ago",
+      },
     ],
   },
   {
@@ -107,7 +135,11 @@ const subjectNotes = [
     bgColor: "bg-green-50",
     topics: ["SQL", "Normalization", "Indexing", "Transactions", "NoSQL"],
     uploadedNotes: [
-      { name: "DBMS_Complete_Notes.pdf", size: "3.1 MB", uploadDate: "1 week ago" },
+      {
+        name: "DBMS_Complete_Notes.pdf",
+        size: "3.1 MB",
+        uploadDate: "1 week ago",
+      },
     ],
   },
   {
@@ -116,10 +148,20 @@ const subjectNotes = [
     icon: Layers,
     color: "text-purple-600",
     bgColor: "bg-purple-50",
-    topics: ["Classes", "Inheritance", "Polymorphism", "Encapsulation", "Abstraction"],
+    topics: [
+      "Classes",
+      "Inheritance",
+      "Polymorphism",
+      "Encapsulation",
+      "Abstraction",
+    ],
     uploadedNotes: [
       { name: "OOPs_Concepts.pdf", size: "1.5 MB", uploadDate: "3 days ago" },
-      { name: "Java_OOP_Examples.pdf", size: "2.7 MB", uploadDate: "1 week ago" },
+      {
+        name: "Java_OOP_Examples.pdf",
+        size: "2.7 MB",
+        uploadDate: "1 week ago",
+      },
     ],
   },
   {
@@ -130,7 +172,11 @@ const subjectNotes = [
     bgColor: "bg-orange-50",
     topics: ["Processes", "Memory", "File Systems", "Scheduling", "Deadlocks"],
     uploadedNotes: [
-      { name: "OS_Process_Management.pdf", size: "2.9 MB", uploadDate: "4 days ago" },
+      {
+        name: "OS_Process_Management.pdf",
+        size: "2.9 MB",
+        uploadDate: "4 days ago",
+      },
     ],
   },
   {
@@ -148,9 +194,19 @@ const subjectNotes = [
     icon: BarChart3,
     color: "text-red-600",
     bgColor: "bg-red-50",
-    topics: ["Scalability", "Load Balancing", "Databases", "Caching", "Microservices"],
+    topics: [
+      "Scalability",
+      "Load Balancing",
+      "Databases",
+      "Caching",
+      "Microservices",
+    ],
     uploadedNotes: [
-      { name: "System_Design_Basics.pdf", size: "4.2 MB", uploadDate: "2 weeks ago" },
+      {
+        name: "System_Design_Basics.pdf",
+        size: "4.2 MB",
+        uploadDate: "2 weeks ago",
+      },
     ],
   },
 ];
@@ -217,9 +273,12 @@ const practiceTests = [
 export default function PlacementPrep() {
   const [uploadingSubject, setUploadingSubject] = useState<number | null>(null);
 
-  const handleFileUpload = (subjectId: number, event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = (
+    subjectId: number,
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     const file = event.target.files?.[0];
-    if (file && file.type === 'application/pdf') {
+    if (file && file.type === "application/pdf") {
       setUploadingSubject(subjectId);
       // Simulate upload process
       setTimeout(() => {
@@ -228,14 +287,14 @@ export default function PlacementPrep() {
         console.log(`Uploading ${file.name} for subject ${subjectId}`);
       }, 2000);
     } else {
-      alert('Please select a valid PDF file.');
+      alert("Please select a valid PDF file.");
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/10 to-purple-100/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20">
@@ -250,8 +309,9 @@ export default function PlacementPrep() {
               <span className="block text-primary">Placement Preparation</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Comprehensive preparation platform with coding practice, mock interviews, 
-              aptitude tests, and company-specific guidance to land your dream job.
+              Comprehensive preparation platform with coding practice, mock
+              interviews, aptitude tests, and company-specific guidance to land
+              your dream job.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8 py-3">
@@ -272,7 +332,9 @@ export default function PlacementPrep() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">10,000+</div>
+              <div className="text-3xl font-bold text-primary mb-2">
+                10,000+
+              </div>
               <div className="text-gray-600">Practice Questions</div>
             </div>
             <div>
@@ -299,15 +361,19 @@ export default function PlacementPrep() {
               Comprehensive Preparation Tracks
             </h2>
             <p className="text-lg text-gray-600">
-              Master every aspect of the interview process with our structured learning paths
+              Master every aspect of the interview process with our structured
+              learning paths
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {preparationCategories.map((category, index) => {
               const Icon = category.icon;
               return (
-                <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
+                <Card
+                  key={index}
+                  className="p-6 hover:shadow-lg transition-shadow"
+                >
                   <CardContent className="p-0">
                     <div className="flex items-start gap-4 mb-4">
                       <div className={`p-3 rounded-lg ${category.bgColor}`}>
@@ -317,8 +383,10 @@ export default function PlacementPrep() {
                         <h3 className="text-xl font-semibold text-gray-900 mb-2">
                           {category.title}
                         </h3>
-                        <p className="text-gray-600 mb-3">{category.description}</p>
-                        
+                        <p className="text-gray-600 mb-3">
+                          {category.description}
+                        </p>
+
                         <div className="mb-4">
                           <div className="flex justify-between text-sm text-gray-600 mb-1">
                             <span>Progress</span>
@@ -326,15 +394,19 @@ export default function PlacementPrep() {
                           </div>
                           <Progress value={category.progress} className="h-2" />
                         </div>
-                        
+
                         <div className="flex flex-wrap gap-2 mb-4">
                           {category.topics.map((topic, idx) => (
-                            <Badge key={idx} variant="secondary" className="text-xs">
+                            <Badge
+                              key={idx}
+                              variant="secondary"
+                              className="text-xs"
+                            >
                               {topic}
                             </Badge>
                           ))}
                         </div>
-                        
+
                         <Button className="w-full">Continue Learning</Button>
                       </div>
                     </div>
@@ -353,21 +425,27 @@ export default function PlacementPrep() {
             {/* Upcoming Interviews */}
             <div>
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">Mock Interviews</h2>
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Mock Interviews
+                </h2>
                 <Button variant="outline">
                   <Calendar className="mr-2 h-4 w-4" />
                   Schedule New
                 </Button>
               </div>
-              
+
               <div className="space-y-4">
                 {upcomingMockInterviews.map((interview, index) => (
                   <Card key={index}>
                     <CardContent className="p-4">
                       <div className="flex items-center justify-between">
                         <div>
-                          <h3 className="font-semibold text-gray-900">{interview.type}</h3>
-                          <p className="text-sm text-gray-600">with {interview.interviewer}</p>
+                          <h3 className="font-semibold text-gray-900">
+                            {interview.type}
+                          </h3>
+                          <p className="text-sm text-gray-600">
+                            with {interview.interviewer}
+                          </p>
                           <div className="flex items-center gap-4 mt-2 text-sm text-gray-500">
                             <div className="flex items-center gap-1">
                               <Clock className="h-4 w-4" />
@@ -396,10 +474,12 @@ export default function PlacementPrep() {
             {/* Practice Tests */}
             <div>
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">Practice Tests</h2>
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Practice Tests
+                </h2>
                 <Button variant="outline">View All</Button>
               </div>
-              
+
               <div className="space-y-4">
                 {practiceTests.map((test, index) => {
                   const Icon = test.icon;
@@ -412,12 +492,20 @@ export default function PlacementPrep() {
                               <Icon className="h-5 w-5 text-primary" />
                             </div>
                             <div>
-                              <h3 className="font-semibold text-gray-900">{test.title}</h3>
+                              <h3 className="font-semibold text-gray-900">
+                                {test.title}
+                              </h3>
                               <div className="flex items-center gap-4 text-sm text-gray-600">
                                 <span>{test.questions} questions</span>
                                 <span>{test.duration}</span>
-                                <Badge 
-                                  variant={test.difficulty === 'Easy' ? 'secondary' : test.difficulty === 'Medium' ? 'default' : 'destructive'} 
+                                <Badge
+                                  variant={
+                                    test.difficulty === "Easy"
+                                      ? "secondary"
+                                      : test.difficulty === "Medium"
+                                        ? "default"
+                                        : "destructive"
+                                  }
                                   className="text-xs"
                                 >
                                   {test.difficulty}
@@ -428,9 +516,7 @@ export default function PlacementPrep() {
                               </div>
                             </div>
                           </div>
-                          <Button size="sm">
-                            Start Test
-                          </Button>
+                          <Button size="sm">Start Test</Button>
                         </div>
                       </CardContent>
                     </Card>
@@ -450,21 +536,35 @@ export default function PlacementPrep() {
               Company-Specific Preparation
             </h2>
             <p className="text-lg text-gray-600">
-              Get insider knowledge about interview processes at top tech companies
+              Get insider knowledge about interview processes at top tech
+              companies
             </p>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {topCompanies.map((company, index) => (
-              <Card key={index} className="p-4 text-center hover:shadow-lg transition-shadow cursor-pointer">
+              <Card
+                key={index}
+                className="p-4 text-center hover:shadow-lg transition-shadow cursor-pointer"
+              >
                 <CardContent className="p-0">
                   <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-3">
                     {company.logo}
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">{company.name}</h3>
-                  <p className="text-sm text-gray-600 mb-2">{company.interviews} interview experiences</p>
-                  <Badge 
-                    variant={company.difficulty === 'Easy' ? 'secondary' : company.difficulty === 'Medium' ? 'default' : 'destructive'} 
+                  <h3 className="font-semibold text-gray-900 mb-1">
+                    {company.name}
+                  </h3>
+                  <p className="text-sm text-gray-600 mb-2">
+                    {company.interviews} interview experiences
+                  </p>
+                  <Badge
+                    variant={
+                      company.difficulty === "Easy"
+                        ? "secondary"
+                        : company.difficulty === "Medium"
+                          ? "default"
+                          : "destructive"
+                    }
                     className="text-xs"
                   >
                     {company.difficulty}
@@ -484,7 +584,8 @@ export default function PlacementPrep() {
               Subject Notes & Study Materials
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Access comprehensive notes for core computer science subjects and upload your own study materials
+              Access comprehensive notes for core computer science subjects and
+              upload your own study materials
             </p>
           </div>
 
@@ -492,7 +593,10 @@ export default function PlacementPrep() {
             {subjectNotes.map((subject) => {
               const Icon = subject.icon;
               return (
-                <Card key={subject.id} className="hover:shadow-lg transition-shadow">
+                <Card
+                  key={subject.id}
+                  className="hover:shadow-lg transition-shadow"
+                >
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div className="flex items-center gap-3">
@@ -500,7 +604,9 @@ export default function PlacementPrep() {
                           <Icon className={`h-6 w-6 ${subject.color}`} />
                         </div>
                         <div>
-                          <CardTitle className="text-lg">{subject.subject}</CardTitle>
+                          <CardTitle className="text-lg">
+                            {subject.subject}
+                          </CardTitle>
                           <p className="text-sm text-gray-600 mt-1">
                             {subject.uploadedNotes.length} notes uploaded
                           </p>
@@ -520,7 +626,9 @@ export default function PlacementPrep() {
                           disabled={uploadingSubject === subject.id}
                         >
                           <Upload className="h-4 w-4 mr-2" />
-                          {uploadingSubject === subject.id ? 'Uploading...' : 'Upload PDF'}
+                          {uploadingSubject === subject.id
+                            ? "Uploading..."
+                            : "Upload PDF"}
                         </Button>
                       </div>
                     </div>
@@ -529,10 +637,16 @@ export default function PlacementPrep() {
                   <CardContent>
                     {/* Subject Topics */}
                     <div className="mb-4">
-                      <h4 className="text-sm font-medium text-gray-900 mb-2">Key Topics:</h4>
+                      <h4 className="text-sm font-medium text-gray-900 mb-2">
+                        Key Topics:
+                      </h4>
                       <div className="flex flex-wrap gap-2">
                         {subject.topics.map((topic, index) => (
-                          <Badge key={index} variant="secondary" className="text-xs">
+                          <Badge
+                            key={index}
+                            variant="secondary"
+                            className="text-xs"
+                          >
                             {topic}
                           </Badge>
                         ))}
@@ -542,7 +656,9 @@ export default function PlacementPrep() {
                     {/* Uploaded Notes */}
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <h4 className="text-sm font-medium text-gray-900">Uploaded Notes:</h4>
+                        <h4 className="text-sm font-medium text-gray-900">
+                          Uploaded Notes:
+                        </h4>
                         {subject.uploadedNotes.length > 0 && (
                           <Button variant="ghost" size="sm" className="text-xs">
                             View All
@@ -552,37 +668,54 @@ export default function PlacementPrep() {
 
                       {subject.uploadedNotes.length > 0 ? (
                         <div className="space-y-3">
-                          {subject.uploadedNotes.slice(0, 2).map((note, index) => (
-                            <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                              <div className="flex items-center gap-3">
-                                <div className="p-2 bg-red-100 rounded">
-                                  <FileText className="h-4 w-4 text-red-600" />
-                                </div>
-                                <div>
-                                  <p className="text-sm font-medium text-gray-900">{note.name}</p>
-                                  <div className="flex items-center gap-2 text-xs text-gray-500">
-                                    <span>{note.size}</span>
-                                    <span>•</span>
-                                    <span>Uploaded {note.uploadDate}</span>
+                          {subject.uploadedNotes
+                            .slice(0, 2)
+                            .map((note, index) => (
+                              <div
+                                key={index}
+                                className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                              >
+                                <div className="flex items-center gap-3">
+                                  <div className="p-2 bg-red-100 rounded">
+                                    <FileText className="h-4 w-4 text-red-600" />
+                                  </div>
+                                  <div>
+                                    <p className="text-sm font-medium text-gray-900">
+                                      {note.name}
+                                    </p>
+                                    <div className="flex items-center gap-2 text-xs text-gray-500">
+                                      <span>{note.size}</span>
+                                      <span>•</span>
+                                      <span>Uploaded {note.uploadDate}</span>
+                                    </div>
                                   </div>
                                 </div>
+                                <div className="flex items-center gap-2">
+                                  <Button
+                                    size="sm"
+                                    variant="ghost"
+                                    className="h-8 w-8 p-0"
+                                  >
+                                    <Eye className="h-4 w-4" />
+                                  </Button>
+                                  <Button
+                                    size="sm"
+                                    variant="ghost"
+                                    className="h-8 w-8 p-0"
+                                  >
+                                    <Download className="h-4 w-4" />
+                                  </Button>
+                                </div>
                               </div>
-                              <div className="flex items-center gap-2">
-                                <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
-                                  <Eye className="h-4 w-4" />
-                                </Button>
-                                <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
-                                  <Download className="h-4 w-4" />
-                                </Button>
-                              </div>
-                            </div>
-                          ))}
+                            ))}
                         </div>
                       ) : (
                         <div className="text-center py-8 text-gray-500">
                           <FileText className="h-12 w-12 mx-auto mb-3 text-gray-300" />
                           <p className="text-sm">No notes uploaded yet</p>
-                          <p className="text-xs mt-1">Upload your first PDF to get started</p>
+                          <p className="text-xs mt-1">
+                            Upload your first PDF to get started
+                          </p>
                         </div>
                       )}
                     </div>
@@ -599,7 +732,9 @@ export default function PlacementPrep() {
                 <FileText className="h-5 w-5 text-blue-600" />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Upload Guidelines</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  Upload Guidelines
+                </h3>
                 <ul className="text-sm text-gray-600 space-y-1">
                   <li>• Maximum file size: 10 MB per PDF</li>
                   <li>• Supported format: PDF only</li>
@@ -620,34 +755,39 @@ export default function PlacementPrep() {
               Why Choose Our Platform?
             </h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="p-6 text-center">
               <CardContent className="p-0">
                 <Target className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Personalized Learning</h3>
+                <h3 className="text-xl font-semibold mb-2">
+                  Personalized Learning
+                </h3>
                 <p className="text-gray-600">
-                  AI-powered recommendations based on your strengths and improvement areas
+                  AI-powered recommendations based on your strengths and
+                  improvement areas
                 </p>
               </CardContent>
             </Card>
-            
+
             <Card className="p-6 text-center">
               <CardContent className="p-0">
                 <Users className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Expert Mentors</h3>
                 <p className="text-gray-600">
-                  Learn from industry professionals and successful placement candidates
+                  Learn from industry professionals and successful placement
+                  candidates
                 </p>
               </CardContent>
             </Card>
-            
+
             <Card className="p-6 text-center">
               <CardContent className="p-0">
                 <TrendingUp className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-2">Track Progress</h3>
                 <p className="text-gray-600">
-                  Detailed analytics and progress tracking to monitor your improvement
+                  Detailed analytics and progress tracking to monitor your
+                  improvement
                 </p>
               </CardContent>
             </Card>
@@ -662,14 +802,19 @@ export default function PlacementPrep() {
             Ready to Land Your Dream Job?
           </h2>
           <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of successful candidates who prepared with our platform
+            Join thousands of successful candidates who prepared with our
+            platform
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" className="text-lg px-8 py-3">
               <Award className="mr-2 h-5 w-5" />
               Start Free Trial
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-3 border-white text-white hover:bg-white hover:text-primary">
+            <Button
+              size="lg"
+              variant="outline"
+              className="text-lg px-8 py-3 border-white text-white hover:bg-white hover:text-primary"
+            >
               <Building2 className="mr-2 h-5 w-5" />
               View Success Stories
             </Button>
